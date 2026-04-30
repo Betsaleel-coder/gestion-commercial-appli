@@ -26,13 +26,14 @@
 }
 
 :root {
+  /* Mode Sombre (Défaut) */
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
   --card: 240 10% 4.9%;
   --card-foreground: 0 0% 98%;
   --popover: 240 10% 3.9%;
   --popover-foreground: 0 0% 98%;
-  --primary: 199 89% 48%; /* Vibrant Blue */
+  --primary: 199 89% 48%;
   --primary-foreground: 0 0% 100%;
   --secondary: 240 3.7% 15.9%;
   --secondary-foreground: 0 0% 98%;
@@ -46,6 +47,40 @@
   --input: 240 3.7% 15.9%;
   --ring: 199 89% 48%;
   --radius: 0.75rem;
+
+  /* Variables d'effets pour le mode sombre */
+  --glass-bg: 26, 26, 26;
+  --glass-border: 255, 255, 255;
+  --card-gradient-end: #121212;
+  --shadow-color: rgba(0, 0, 0, 0.8);
+}
+ 
+.light {
+  --background: 210 20% 98%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 199 89% 48%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 199 89% 48%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 199 89% 48%;
+
+  /* Variables d'effets pour le mode clair */
+  --glass-bg: 255, 255, 255;
+  --glass-border: 0, 0, 0;
+  --card-gradient-end: #f0f4f8;
+  --shadow-color: rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -59,23 +94,23 @@ body {
 }
 
 .glass {
-  background: rgba(26, 26, 26, 0.6);
+  background: rgba(var(--glass-bg), 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(var(--glass-border), 0.1);
 }
 
 .obsidian-card {
-  background: linear-gradient(145deg, hsl(var(--card)), #121212);
+  background: linear-gradient(145deg, hsl(var(--card)), var(--card-gradient-end));
   border: 1px solid hsl(var(--border));
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .obsidian-card:hover {
   border-color: hsl(var(--accent) / 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.9);
+  box-shadow: 0 12px 48px 0 var(--shadow-color);
 }
 
 @keyframes fadeIn {
